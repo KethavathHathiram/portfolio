@@ -1,0 +1,315 @@
+/* ---------------- GLOBAL STYLES ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(270deg, #ff9a00, #ff6a00, #ff3d00, #ff9a00);
+  background-size: 400% 400%;
+  animation: orangeBG 10s ease infinite;
+  color: #fffaf2;
+  overflow-x: hidden;
+}
+
+/* Background Gradient Animation */
+@keyframes orangeBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+/* Logo with Orange Glow */
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: capitalize;
+  background: linear-gradient(90deg, #ffb347, #ffcc33, #ff8008);
+  background-size: 400% 400%;
+  padding: 10px 18px;
+  border-radius: 10px;
+  animation: logoGlow 5s linear infinite;
+  box-shadow: 0 0 15px rgba(255, 136, 0, 0.4);
+}
+
+@keyframes logoGlow {
+  0% { background-position: 0% 50%; box-shadow: 0 0 15px #ffb347; }
+  50% { background-position: 100% 50%; box-shadow: 0 0 25px #ff8008; }
+  100% { background-position: 0% 50%; box-shadow: 0 0 15px #ffb347; }
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #ffcc33;
+  transition: 0.4s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #ffcc33;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: auto;
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile Picture Floating Animation */
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffcc33;
+  box-shadow: 0 0 30px rgba(255, 204, 51, 0.8);
+  animation: floatPic 3s ease-in-out infinite;
+}
+
+@keyframes floatPic {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Typing Effect for Intro */
+.hero h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #ffcc33;
+  width: 0;
+  animation: typing 4s steps(25) 1s forwards, blink 0.7s step-end infinite;
+}
+
+.hero h1 span {
+  color: #ffcc33;
+  text-shadow: 0 0 20px #ffb347, 0 0 40px #ffcc33;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Description Fade-up Animation */
+.hero p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 2s ease 4.5s forwards;
+  color: #fff6e8;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Explore Button */
+.btn {
+  background: linear-gradient(90deg, #ffb347, #ff8008);
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-top: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 0 25px #ffcc33;
+  transform: translateY(-4px);
+}
+
+/* ---------------- SECTIONS ---------------- */
+.section {
+  padding: 90px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffcc33;
+  text-shadow: 0 0 20px rgba(255, 204, 51, 0.7);
+  margin-bottom: 30px;
+}
+
+/* Neon Glass Card */
+.neon-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 204, 51, 0.3);
+  box-shadow: 0 0 25px rgba(255, 136, 0, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+  transition: 0.4s;
+}
+
+.neon-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(255, 204, 51, 0.4);
+}
+
+/* Skills List */
+.Skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.Skills-list li {
+  background: rgba(255, 204, 51, 0.1);
+  border: 1px solid rgba(255, 204, 51, 0.3);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.Skills-list li:hover {
+  background: #ffcc33;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Contact Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+form input, form textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,204,51,0.3);
+}
+
+form input:focus, form textarea:focus {
+  box-shadow: 0 0 10px #ffcc33;
+}
+
+form button {
+  border: none;
+  background: linear-gradient(90deg, #ffb347, #ff8008);
+  color: #000;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  box-shadow: 0 0 20px #ffcc33;
+  transform: translateY(-3px);
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f7e2c4;
+  font-size: 0.9rem;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+}
